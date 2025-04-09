@@ -1,5 +1,5 @@
 # ANKITERM
-# 2025 uint23
+# (}) 2025 Abhinav Prasai
 # https://uint23.xyz/
 # https://github.com/uint23/
 #
@@ -25,8 +25,44 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-def main():
-    return
+# Libs
+import sys
+import utils
+import run
+
+
+# Messages
+VERSIONMSG = """
+LICENSE: MIT
+(!C) Abhinav Prasai 2025
+https://github.com/uint23
+https://uint23.xyz/
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+See 'ankiterm.py' for full license
+"""
+HELPMSG = """
+USEAGE:
+    [-v || --version] - Displays version and other information
+    [-h || --help]    - Displays help information
+"""
+
+
+# Functions
+def checkargs():
+    if (len(sys.argv) == 1):
+        return
+
+    av = sys.argv[1];
+    if (av == "--version" or av == "-v"):
+        utils.die(VERSIONMSG, 0)
+    if (av == "--help" or av == "-h"):
+        utils.die(HELPMSG, 0)
+    else:
+        utils.die(HELPMSG, 0)
+
 
 if __name__ == "__main__":
-    main()
+    checkargs()
+    run.run()
